@@ -1,16 +1,16 @@
-let randomCards = [];
+let cartasAleatorias = [];
 
-const randomNumber = () => {
+const numeroAleatorio = () => {
   return Math.floor(Math.random() * 101);
 };
 
-function createDeck(array) {
-  let random;
+function crearMazo(array) {
+  let aleatorio;
 
   do {
-    random = randomNumber();
-    if (!array.includes(random)) {
-      array.push(random);
+    aleatorio = numeroAleatorio();
+    if (!array.includes(aleatorio)) {
+      array.push(aleatorio);
     }
   } while (array.length < 50);
 
@@ -19,23 +19,23 @@ function createDeck(array) {
   }
 }
 
-function picktwoNumbers(array) {
+function elegirDosNumeros(array) {
   let i = Math.floor(Math.random() * array.length);
   let r = array[i];
   return r;
 }
 
-createDeck(randomCards);
+crearMazo(cartasAleatorias);
 
-let number1 = picktwoNumbers(randomCards);
-let number2 = picktwoNumbers(randomCards);
+let numero1 = elegirDosNumeros(cartasAleatorias);
+let numero2 = elegirDosNumeros(cartasAleatorias);
 
-if (number1 < number2) {
-  console.log(`Player2 had the highest number: ${number2}`);
-  console.log(`Player1 lost: ${number1}`);
-} else if (number1 > number2) {
-  console.log(`Player1 had the highest number: ${number1}`);
-  console.log(`Player2 lost: ${number2}`);
+if (numero1 < numero2) {
+  console.log(`Jugador 2 tiene el número más alto: ${numero2}`);
+  console.log(`Jugador 1 perdió: ${numero1}`);
+} else if (numero1 > numero2) {
+  console.log(`Jugador 1 tiene el número más alto: ${numero1}`);
+  console.log(`Jugador 2 perdió: ${numero2}`);
 } else {
-  console.log("Draw");
+  console.log("Empate");
 }
